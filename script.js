@@ -4,7 +4,7 @@
 
 
 //Modell
-let inputNumbers = [];
+const inputNumbers = [];
 
 //View
 updateView()
@@ -16,7 +16,7 @@ function updateView() {
     <h3>Numrene som skal kaluleres:</h3>
     <div>${inputNumbers}</div>
     <br>
-    <input id="inputNumbers" onchange="userInputNumbers(this.value)" type="number">
+    <input id="inputNumbers" onchange="userInputNumbers(this.valueAsNumber)" type="number">
     <br/>
     <button onclick="calculateNumbers()">Kalkuler gjennomsnittet:</button>
     <br/>
@@ -26,7 +26,7 @@ function updateView() {
     
     
     `;
-    // document.getElementById("inputNumbers").focus();
+    document.getElementById("inputNumbers").focus();
 }
 
 //Control
@@ -36,14 +36,14 @@ function userInputNumbers(value) {
 }
 
 function calculateNumbers(inputNumbers) {
-    let total = '';
-    let average = '';
+    let total = 0;
+    let average = 0;
     for (let i = 0; i < inputNumbers.length; i++) {
         total += inputNumbers[i];
     }
-    // average = total / inputNumbers.length;
+    average = total / inputNumbers.length;
     console.log(total)
-    return total / inputNumbers.length;
+    return average
 
 }
 
